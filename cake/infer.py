@@ -59,7 +59,7 @@ def variance(y, w, name=None):
         return tf.subtract(y_q_exp_sq, tf.square(y_q_exp), name=name)
 
 
-def clip_normalize(w, name=None):
+def clip_normalize(w, eps=1e-15, name=None):
     """
     Clip-normalise over the first axis of a tensor.
 
@@ -76,7 +76,7 @@ def clip_normalize(w, name=None):
         The clip-normalised tensor of the same size as the input
     """
     with tf.name_scope('clip_normalize'):
-        w_clip = tf.clip_by_value(w, 0, np.inf)
+        w_clip = tf.clip_by_value(w, eps, np.inf)
         return tf.divide(w_clip, tf.reduce_sum(w_clip, axis=0), name=name)
 
 
