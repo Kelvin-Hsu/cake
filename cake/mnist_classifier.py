@@ -3,10 +3,10 @@ Define the mnist linear kernel embedding classifier.
 """
 import tensorflow as tf
 import numpy as np
-from cake.infer import clip_normalize as _clip_normalize
-from cake.infer import classify as _classify
-from cake.infer import decode_one_hot as _decode_one_hot
-from cake.data_type_def import *
+from .infer import clip_normalize as _clip_normalize
+from .infer import classify as _classify
+from .infer import decode_one_hot as _decode_one_hot
+from .data_type_def import *
 
 
 def weight_variable(shape):
